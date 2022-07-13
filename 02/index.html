@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Playground 2.0</title>
+  </head>
+  <body>
+    <script>
+      const myNum = 683;
+
+      console.log(myNum.toString(16));
+      console.log(myNum.toString(2));
+
+      const userNum = parseFloat(prompt("Please enter your number"));
+
+      console.log(`Your number is ${userNum}`);
+
+      console.log(userNum + 2);
+      console.log(userNum - 2);
+      console.log(userNum * 2);
+      console.log(userNum / 2);
+
+      let randomNum = 0.51000002;
+      console.log(parseFloat(randomNum.toFixed(2)) + 2);
+
+      const str = "the quick brown fox jumps over the lazy dogs back";
+      const str_two = "brown fox jumps";
+
+      let strSearch = str.indexOf(str_two);
+      console.log(strSearch);
+
+      let strUpper = console.log(str.toUpperCase());
+
+      let a = 1,
+        b = 2,
+        c = 3,
+        d = 3;
+
+      let res1 = a === c || c === b; // false, false
+      let res2 = b === c || c === c; // false, true
+      let res3 = c === c || c === d; // true, true
+      console.log(res1, res2, res3); // false, true, true
+
+      let res4 = a === c && c === b;
+      let res5 = b === c && c === c;
+      let res6 = c === c && c === d;
+      console.log(res4, res5, res6); // false, false, true
+
+      console.log(res1 === res2 || res2 === res3); // true, true
+      console.log(res4 === res5 && res5 <= res6); // false, true
+    </script>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Playground 5.0</title>
+  </head>
+  <body>
+    <script>
+      const myArr = [...Array(15)];
+
+      const newArr = myArr.map((el) => {
+        return Math.floor(Math.random() * 21);
+      });
+
+      console.log(newArr);
+
+      const filteredArr = newArr.filter((el) => el % 3 === 0);
+
+      console.log(filteredArr);
+
+      // =================
+
+      let foundEl = newArr.find((el) => el > 7);
+      if (foundEl) {
+        console.log(foundEl);
+      } else {
+        console.log("all the elements are smaller than 7");
+      }
+
+      // =================
+
+      const doubledArr = newArr.map((el) => el * 2);
+      console.log(doubledArr);
+
+      // =================
+
+      const sum = newArr.reduce((previousValue, currentValue) => {
+        // console.log(previousValue, currentValue);
+        return currentValue % 2 ? previousValue : previousValue + currentValue;
+      }, 0);
+
+      console.log(sum);
+
+      // =================
+
+      const firstEl = newArr.shift();
+      console.log(firstEl, newArr);
+
+      const lastEl = newArr.pop();
+      console.log(lastEl, newArr);
+
+      // =================
+
+      const arrayOne = ["dog", "cat", "bird", "rabbit", "horse"];
+      const arrayTwo = ["apple", "car", "cat", "ball", "horse"];
+
+      const farm = arrayOne.filter((animal) => arrayTwo.includes(animal));
+
+      console.log(farm);
+    </script>
+  </body>
+</html>

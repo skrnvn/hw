@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Playground 4.0</title>
+  </head>
+  <body>
+    <script>
+      let myArray = ["455", 87.15, true, undefined, 7, null, "false", [], {}];
+
+      myArray.forEach(function (item) {
+        if (typeof item == "number") {
+          console.log((item += 3));
+        } else {
+          console.log(typeof item);
+        }
+      });
+
+      // ===========
+
+      let userNumber = parseInt(prompt("Please enter the integer"));
+      let userArray = [];
+      for (let i = 0; i < userNumber; i++) {
+        userArray.push(Math.floor(Math.random() * 11));
+      }
+      console.log(userArray);
+
+      let newArray = userArray.slice();
+      for (let i = 2; i < newArray.length; i += 3) {
+        newArray[i] *= 3;
+      }
+
+      console.log(newArray);
+
+      // ===========
+
+      let student1 = { firstName: "John", lastName: "Doe", mark: 7 };
+      console.log(student1);
+
+      let student2 = { ...student1, mark: 5 };
+      console.log(student2);
+
+      let student3 = Object.assign({}, student1, { mark: 3 });
+      console.log(student3);
+
+      let studentsList = [student1, student2, student3];
+      let sum = 0;
+
+      for (i = 0; i < studentsList.length; i++) {
+        sum += studentsList[i].mark;
+        console.log(studentsList[i]["mark"]);
+      }
+
+      console.log(sum / studentsList.length);
+
+      for (let key in student1) {
+        console.log(key, " - ", student1[key]);
+      }
+    </script>
+  </body>
+</html>

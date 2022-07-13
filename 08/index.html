@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Playground 8.0</title>
+  </head>
+  <body>
+    <script>
+      let triangle = {
+        aSide: 0,
+        bSide: 0,
+        cSide: 0,
+        setValues: function () {
+          this.aSide = this.getValue("Please submit the first triangle side");
+          this.bSide = this.getValue("Please submit the second triangle side");
+          this.cSide = this.getValue("Please submit the third triangle side");
+        },
+        getValue: function (title) {
+          return parseInt(prompt(title));
+        },
+        getPerimeter: function () {
+          return this.aSide + this.bSide + this.cSide;
+        },
+        isEqualSides: function () {
+          if (this.aSide === this.bSide && this.bSide === this.cSide) {
+            console.log("Horay! This triangle is equilateral!");
+            return true;
+          } else {
+            console.log("Better luck next time");
+            return false;
+          }
+        },
+      };
+      triangle.setValues();
+      console.log(
+        triangle.aSide,
+        triangle.bSide,
+        triangle.cSide,
+        triangle.getPerimeter(),
+        triangle.isEqualSides()
+      );
+
+      //===================
+
+      let calculator = {
+        read: function () {
+          this.x = this.getValue("Please enter your first number");
+          this.y = this.getValue("Please enter your second number");
+        },
+        getValue: function (title) {
+          return parseInt(prompt(title));
+        },
+        sum: function () {
+          return this.x + this.y;
+        },
+        multi: function () {
+          return this.x * this.y;
+        },
+        diff: function () {
+          return this.x - this.y;
+        },
+        div: function () {
+          return this.x / this.y;
+        },
+      };
+      calculator.read();
+      console.log(
+        calculator.sum(),
+        calculator.multi(),
+        calculator.diff(),
+        calculator.div()
+      );
+
+      //===================
+
+      var country = {
+        name: "Ukraine",
+        language: "ukrainian",
+        capital: {
+          name: "Kyiv",
+          population: 2907817,
+          area: 847.66,
+        },
+      };
+
+      function format(start, end) {
+        console.log(start + this.name + end);
+      }
+      format.call(country, "", "");
+      format.apply(country, ["[", "]"]);
+      format.call(country.capital, "", "");
+      format.apply(country.capital, ["", ""]);
+      format.apply(country.language, ["", ""]);
+
+      //===================
+
+      var text = "outside";
+      function logIt() {
+        console.log(text);
+        var text = "inside";
+      }
+      logIt(); // undefined, бо змінна вже вказана в контексті, але ми її викликаємо до того, як задаємо, того жабаскрипт виводить такий результат
+    </script>
+  </body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Playground 3.0</title>
+  </head>
+  <body>
+    <script>
+      let userName = prompt("What is your name?");
+
+      for (let i = 1; i < 5; i++) {
+        if (i == 3) {
+          console.log(`Happy birthday, dear ${userName}`);
+        } else {
+          console.log("Happy birthday to you");
+        }
+      }
+
+      //
+
+      let userNumber = parseFloat(prompt("Enter the number bigger than 0"));
+
+      for (let i = 1; i <= userNumber; i++) {
+        let userString = ".#";
+        console.log(userString.repeat(userNumber));
+      }
+
+      let theNumber = prompt("Enter your number");
+
+      while (!parseFloat(theNumber)) {
+        theNumber = prompt("Invalid. You should enter a number");
+      }
+
+      let parsedNumber = parseFloat(theNumber);
+      let sum = 0;
+      for (let i = 1; i <= parsedNumber; i += 2) {
+        sum += i;
+      }
+
+      console.log(sum);
+
+      //
+
+      let iterationCount = 0;
+      let iterationNumber;
+      while (true) {
+        iterationCount++;
+        iterationNumber = Math.random();
+        if (iterationNumber > 0.7) {
+          console.log(`Number of iterations: ${iterationCount}`);
+          console.log(`Loop was finished because of: ${iterationNumber}`);
+          break;
+        }
+      }
+
+      //
+
+      for (let i = 1; i <= 50; i++) {
+        if (i % 3 == 0 && i % 5 == 0) {
+          console.log("Div by 5 and 3");
+        } else if (i % 3 == 0) {
+          console.log("Div by 3");
+        } else if (i % 5 == 0) {
+          console.log("Div by 5");
+        } else {
+          console.log(i);
+        }
+      }
+
+      //
+
+      let myDate = new Date();
+
+      let dateString =
+        myDate.getDate() +
+        "/" +
+        (myDate.getMonth() + 1) +
+        " " +
+        myDate.getHours() +
+        ":" +
+        myDate.getMinutes();
+
+      console.log(dateString);
+      console.log(
+        myDate.toLocaleString("default", {
+          month: "long",
+          day: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+        })
+      );
+    </script>
+  </body>
+</html>
