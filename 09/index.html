@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Playground 9.0</title>
+  </head>
+  <body>
+    <script>
+      const object = {
+        a: 5,
+        b: {
+          g: 8,
+          y: 9,
+          t: {
+            q: 48,
+          },
+        },
+        x: 47,
+      };
+
+      let newObject = JSON.parse(JSON.stringify(object));
+
+      console.log(newObject);
+
+      function objCopy(someObj) {
+        if (Array.isArray(someObj)) {
+          let result = [];
+          for (let i = 0; i < someObj.length; i++) {
+            if (typeof someObj[i] === "object") {
+              result.push(objCopy(someObj[key]));
+            } else {
+              result.push(someObj[i]);
+            }
+          }
+          return result;
+        } else {
+          let result = {};
+          console.log(someObj);
+          for (key in someObj) {
+            if (typeof someObj[key] === "object") {
+              result[key] = objCopy(someObj[key]);
+            } else {
+              result[key] = someObj[key];
+            }
+          }
+          return result;
+        }
+      }
+
+      const object2 = {
+        a: 5,
+        b: {
+          g: [9, 9, 9, 9],
+          y: 9,
+          t: {
+            q: 48,
+            m: {
+              kek: "cheburek",
+            },
+          },
+        },
+        x: 47,
+      };
+
+      console.log(objCopy(object2));
+    </script>
+  </body>
+</html>
