@@ -7,6 +7,62 @@
     <title>Document</title>
   </head>
   <body>
-    <script></script>
+    <script>
+      let coffeeMachine = {
+        message: "Your coffee is ready!",
+        start: function () {
+          setTimeout(() => {
+            console.log(this.message);
+          }, 3000);
+        },
+      };
+
+      coffeeMachine.start();
+
+      //===================
+
+      let teaPlease = {
+        message: "Wanna some tea instead of coffee?",
+      };
+
+      coffeeMachine.start = coffeeMachine.start.bind(teaPlease);
+      coffeeMachine.start();
+
+      //===================
+
+      function concatStr(str1, separator, str2) {
+        return str1 + separator + str2;
+      }
+
+      let checkConcat = concatStr("Hello", " ", "Matt"); // 'Hello Matt'
+      console.log(checkConcat);
+
+      const hello = concatStr.bind(this, "Hello", " ");
+
+      let finalResult = hello("John"); // 'Hello Matt'
+      console.log(finalResult);
+
+      //===================
+
+      function showNumbers(start, end, interval) {
+        console.log(start);
+        if (start < end) {
+          setTimeout(showNumbers, interval, start + 1, end, interval);
+          //   setTimeout(() => showNumbers(start + 1, end, interval), interval);
+        }
+      }
+
+      showNumbers(5, 10, 500);
+
+      //===================
+
+      function addBase(base) {
+        return function (num) {
+          return base + num;
+        };
+      }
+      let addOne = addBase(1); // <-- ця штука це, по суті, обгортка, в яку ми передаємо значення base = 1
+      alert(addOne(5) + addOne(3)); // <-- тут буде 10, бо (1+5) + (1+3) = 10
+    </script>
   </body>
 </html>
